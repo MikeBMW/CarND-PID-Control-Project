@@ -5,3 +5,8 @@ then I found the  car can't turn around the biggest corner, so I add Kp a little
 I feel the car swing too big, so I decrease Kp to 0.15, I also increase Kd a little to 0.85, then I feel better;
 even the car swing still big, but I don't dare to decrease Kp, because the car can't turn the biggest corner if I decrease Kp, so I let the car keep a little bigger Kp;
 about Ki, I just use a very small value, Ki = 0.0001, then I add it a little. When I use Ki = 0.001, I feel the system bias become smaller, so I keep this value;
+
+The effect of P I D:
+P:The car drive straight if P is very small, and the car turn to swing strongly if"P" become bigger;
+D:The car become less swing if "D" become bigger;
+I:The car locate a little on the right side of the road middle if "I" become bigger(positive);
