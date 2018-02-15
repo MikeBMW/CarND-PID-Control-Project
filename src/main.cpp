@@ -34,7 +34,61 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  pid.Init(0.15 ,0.01, 1.0); 
+  //pid.Init(0.15 ,0.01, 2.2);
+  //pid.Init(0 ,0, 0);	// 1 leave the track, add P a little;      
+  //pid.Init(0.1 ,0, 0);	// 2  can not go back to track; 
+  //pid.Init(0.1 ,0, 1.0); 	// 3  too go to right side;
+  //pid.Init(0.1 ,0, 2.0); 	//  
+  //pid.Init(0.1 ,0.01, 2.0);   //  
+  //pid.Init(0.1 ,0.01, 2.5);
+  //pid.Init(0.1 ,0.01, 1.0);    // 4 almost go out of the road
+  //pid.Init(0.15 ,0.01, 1.0);   //  
+  //pid.Init(0.15 ,0.01, 1.2);
+  //pid.Init(0.15 ,0.015, 1.2);
+  //pid.Init(0.15 ,0.008, 1.2);
+  //pid.Init(0.12 ,0.008, 1.2);
+  //pid.Init(0.1 ,0.008, 1.2);
+  //pid.Init(0.1 ,0.008, 1.0);
+  //pid.Init(0.1 ,0.011, 1.0);
+  //pid.Init(0.12 ,0.011, 1.0);
+  //pid.Init(0.12 ,0.011, 1.2);
+  //pid.Init(0.12 ,0.011, 1.1);
+  //pid.Init(0.11 ,0.011, 1.1);
+  //pid.Init(0.09 ,0.011, 1.1);
+  //pid.Init(0.09 ,0.015, 1.1);
+  //pid.Init(0.08 ,0.01, 1.1);
+  //pid.Init(0.08 ,0.01, 1);
+  //pid.Init(0.07 ,0.01, 1);      // 
+  //pid.Init(0.07 ,0.007, 1);
+  //pid.Init(0.07 ,-0.007, 1);
+  //pid.Init(0.07 ,0.009, 1);
+  //pid.Init(0.07 ,0.01, 1);
+  //pid.Init(0.09 ,0.01, 1);
+  //pid.Init(0.09 ,0.01, 0.9);
+  //pid.Init(0.1 ,0.01, 1.0);   
+  //pid.Init(0.09 ,0.01, 1.0);
+  //pid.Init(0.09 ,0.011, 1.0);
+  //pid.Init(0.09 ,0.005, 1.0);
+  //pid.Init(0.07 ,0.005, 1.0);
+  //pid.Init(0.07 ,0.007, 1.0);
+  //pid.Init(0.06 ,0.007, 1.0);
+  //pid.Init(0.06 ,0.006, 0.8);
+  //pid.Init(0.07 ,0.006, 0.8);
+  //pid.Init(0.08 ,0.006, 0.8);
+  //pid.Init(0.08 ,0.008, 0.8);
+  //pid.Init(0.09 ,0.009, 0.9);
+  //pid.Init(0.1 ,0.009, 0.9);  // 
+  //pid.Init(0.11 ,0.009, 0.9);
+  //pid.Init(0.12 ,0.009, 1.0);  //5  a little slow, decrease "d"
+  pid.Init(0.12 ,0.009, 0.9);   // 6 latest version
+  //pid.Init(0.13 ,0.009, 0.9);   // 7 become worse
+
+
+//#ffmpeg -f x11grab -s xga -r 10 -i :0.0+0+0 pid1.avi 
+
+
+  
+
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
@@ -68,7 +122,8 @@ int main()
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.28;
+          msgJson["throttle"] = 0.3;
+          //msgJson["throttle"] = 0.28;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
