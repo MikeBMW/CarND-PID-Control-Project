@@ -23,7 +23,7 @@ good luck for myself!
 7 "7_p0.13_i0.009_d0.9.avi"
 It becomes worse, so keep to use ""6_p0.12_i0.009_d0.9.avi""
 
-##The effect of P I D:
+##The effect of P I D
 P: P stands for proportional, the proportional term produces an output value that is proportional to the current error value.
 
 I: Integral term.The contribution from the integral term is proportional to both the magnitude of the error and the duration of the error.
